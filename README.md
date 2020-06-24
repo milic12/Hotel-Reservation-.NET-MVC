@@ -1,7 +1,7 @@
 # Hotel-Reservation-.NET-MVC
 .NET MVC web API
 ##Using Azure SQL for database
-<img src="/images/slika1.png" alt="covid1"/>
-<img src="/images/slika2.png" alt="Tcovid2"/>
-<img src="/images/slika3.png" alt="covid3"/>
+<img src="/images/hotel1.png" alt="hotel1"/>
+<img src="/images/hotel2.png" alt="hotel2"/>
+<img src="/images/hotel3.png" alt="hotel3"/>
 
