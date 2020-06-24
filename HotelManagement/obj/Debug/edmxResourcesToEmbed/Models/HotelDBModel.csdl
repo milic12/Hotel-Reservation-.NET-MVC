@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentTypeId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoomBooking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="550" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BookingFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BookingTo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AssignRoomId" Type="Int32" Nullable="false" />
+    <Property Name="NoOfMembers" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoomImage" Type="String" MaxLength="550" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoomPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BookStatusId" Type="Int32" Nullable="false" />
+    <Property Name="RoomTypeID" Type="Int32" Nullable="false" />
+    <Property Name="RoomCapacity" Type="Int32" Nullable="false" />
+    <Property Name="RoomDescription" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BookingStatu">
+    <Key>
+      <PropertyRef Name="BookingStatusId" />
+    </Key>
+    <Property Name="BookingStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeId" />
+    </Key>
+    <Property Name="PaymentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HotelDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="RoomBookings" EntityType="Self.RoomBooking" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="BookingStatus" EntityType="Self.BookingStatu" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+    <EntitySet Name="RoomTypes" EntityType="HotelDBModel.RoomType" />
+  </EntityContainer>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="RoomTypeId" />
+    </Key>
+    <Property Name="RoomTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingId" Type="int" Nullable="false" />
+    <Property Name="PaymentTypeId" Type="int" Nullable="false" />
+    <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoomBookings">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CustomerAddress" Type="nvarchar" MaxLength="550" Nullable="false" />
+    <Property Name="BookingFrom" Type="date" Nullable="false" />
+    <Property Name="BookingTo" Type="date" Nullable="false" />
+    <Property Name="AssignRoomId" Type="int" Nullable="false" />
+    <Property Name="NoOfMembers" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="RoomImage" Type="nvarchar" MaxLength="550" Nullable="false" />
+    <Property Name="RoomPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BookStatusId" Type="int" Nullable="false" />
+    <Property Name="RoomTypeID" Type="int" Nullable="false" />
+    <Property Name="RoomCapacity" Type="int" Nullable="false" />
+    <Property Name="RoomDescription" Type="nvarchar" MaxLength="550" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BookingStatus">
+    <Key>
+      <PropertyRef Name="BookingStatusId" />
+    </Key>
+    <Property Name="BookingStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingStatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentTypes">
+    <Key>
+      <PropertyRef Name="PaymentTypeId" />
+    </Key>
+    <Property Name="PaymentTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoomTypes">
+    <Key>
+      <PropertyRef Name="RoomTypeId" />
+    </Key>
+    <Property Name="RoomTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoomTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HotelDBModelStoreContainer">
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="Hotel" store:Type="Tables" />
+    <EntitySet Name="RoomBookings" EntityType="Self.RoomBookings" Schema="Hotel" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="Hotel" store:Type="Tables" />
+    <EntitySet Name="BookingStatus" EntityType="Self.BookingStatus" Schema="master" store:Type="Tables" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" Schema="master" store:Type="Tables" />
+    <EntitySet Name="RoomTypes" EntityType="Self.RoomTypes" Schema="master" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
