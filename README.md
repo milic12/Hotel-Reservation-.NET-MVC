@@ -5,6 +5,8 @@
 <img src="/images/hotel1.png" alt="hotel1"/>
 ## DataBase Diagram
 <img src="/images/hotel2.jpg" alt="hotel2"/>
-## Azure SQL 
+
+##  Azure SQL 
+
 <img src="/images/hotel3.png" alt="hotel3"/>
 
